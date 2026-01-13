@@ -1,0 +1,2 @@
+registration : Done , hive save 
+login : Done save in shared preference , get the corresponding detail from hive 
