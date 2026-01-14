@@ -1,4 +1,3 @@
-
 // ignore_for_file: use_build_context_synchronously
 
 import 'dart:convert';
@@ -23,13 +22,13 @@ class LoginScreen extends StatefulWidget {
 final _formKey = GlobalKey<FormState>();
 String email = '';
 String pwd = '';
-bool obscureText = false;
+bool obscureText = true;
 
 class _LoginScreenState extends State<LoginScreen> {
   var box = Hive.box(Values.dbName);
 
   @override
-void initState() {
+  void initState() {
     ReuseFunctions().logPrint().i(box.keyAt(0));
     super.initState();
   }
@@ -39,7 +38,7 @@ void initState() {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100,
-        backgroundColor: MyColours().bgColor,
+        backgroundColor: MyColours.bgColor,
         title: Image.asset("images/logo/vendoor-logo-transparent.png"),
         centerTitle: true,
         automaticallyImplyLeading: false,
@@ -58,10 +57,10 @@ void initState() {
                       decoration: InputDecoration(
                         hintText: "User Name",
                         border: OutlineInputBorder(
-                          borderSide: BorderSide(color: MyColours().iconsColor),
+                          borderSide: BorderSide(color: MyColours.iconsColor),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: MyColours().iconsColor),
+                          borderSide: BorderSide(color: MyColours.iconsColor),
                         ),
                       ),
                       keyboardType: TextInputType.emailAddress,
@@ -99,7 +98,9 @@ void initState() {
                         ),
                         suffixIcon: IconButton(
                           onPressed: () {
-                            obscureText = false;
+                            setState(() {
+                              obscureText = !obscureText;
+                            });
                           },
                           icon: Icon(Icons.visibility_off),
                         ),

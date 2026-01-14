@@ -21,7 +21,6 @@ class SplashScreen extends StatefulWidget {
 bool userIsLoggedIn = false;
 var logger = ReuseFunctions().logPrint();
 
-
 class _SplashScreenState extends State<SplashScreen> {
   var box = Hive.box(Values.dbName);
 
@@ -33,6 +32,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> homeOrLogin() async {
+    Iterable<dynamic> keys = box.keys;
+    logger.i(keys);
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     userIsLoggedIn = prefs.containsKey("loggedIn");
 
@@ -72,7 +73,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColours().bgColor,
+      backgroundColor: MyColours.bgColor,
       body: Padding(
         padding: EdgeInsets.all(20),
         child: Center(

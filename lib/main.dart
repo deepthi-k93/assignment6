@@ -1,5 +1,3 @@
-// import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:vendor_application/features/splash_screen/splash_screen.dart';
@@ -28,6 +26,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: const SplashScreen(title: 'Vendoors'));
+    return MaterialApp(
+      theme: ThemeData(
+        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        fontFamily: "Roboto",
+      ),
+      home: const SplashScreen(title: 'Vendoors'),
+    );
   }
 }

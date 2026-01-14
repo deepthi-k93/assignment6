@@ -29,7 +29,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100,
-        backgroundColor: MyColours().bgColor,
+        backgroundColor: MyColours.bgColor,
         title: Image.asset("images/logo/vendoor-logo-transparent.png"),
         centerTitle: true,
         automaticallyImplyLeading: false,

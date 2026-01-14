@@ -1,2 +1,4 @@
 registration : Done , hive save 
 login : Done save in shared preference , get the corresponding detail from hive 
+logout : done in profile page on logout saved values are cleared and redirected to SplashScreen
+profile screen : done 
