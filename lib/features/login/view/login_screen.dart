@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   void initState() {
-    ReuseFunctions().logPrint().i(box.keyAt(0));
+    ReuseFunctions.logPrint().i(box.keyAt(0));
     super.initState();
   }
 

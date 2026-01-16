@@ -19,7 +19,7 @@ class ProfileScreen extends StatefulWidget {
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-var logger = ReuseFunctions().logPrint();
+var logger = ReuseFunctions.logPrint();
 
 class _ProfileScreenState extends State<ProfileScreen> {
   @override

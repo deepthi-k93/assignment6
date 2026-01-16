@@ -214,7 +214,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     password: pwd,
                     confirmPassword: cnfrmPwd,
                   );
-                  ReuseFunctions().logPrint().i(user);
+                  ReuseFunctions.logPrint().i(user);
                   String userJson = jsonEncode(user.toJson());
                   //add
                   box.put(email, userJson);

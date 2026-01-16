@@ -1,7 +1,7 @@
 import 'package:logger/logger.dart';
 
 class ReuseFunctions {
-  Logger logPrint() {
+ static Logger logPrint() {
     return Logger(
       printer: PrettyPrinter(
         methodCount: 0,

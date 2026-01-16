@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:provider/provider.dart';
+import 'package:vendor_application/features/cart/view_model/cart_provider.dart';
+import 'package:vendor_application/features/home/view_model/products_provider.dart';
 import 'package:vendor_application/features/splash_screen/splash_screen.dart';
 import 'package:vendor_application/theme/values.dart';
 
@@ -16,8 +19,12 @@ void main() async {
     logger.i('Exception details:\n $e');
   }
 
-  runApp(const MainApp());
-}
+runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => ProductsProvider()),ChangeNotifierProvider(create: (_)=>CartProvider())],
+      child: const MainApp(),
+    ),
+  );}
 
 class VendorAdapter {}
 

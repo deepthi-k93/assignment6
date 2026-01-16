@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vendor_application/features/home/view/home_screen.dart';
@@ -19,7 +20,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 bool userIsLoggedIn = false;
-var logger = ReuseFunctions().logPrint();
+var logger = ReuseFunctions.logPrint();
 
 class _SplashScreenState extends State<SplashScreen> {
   var box = Hive.box(Values.dbName);
@@ -72,18 +73,28 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: MyColours.bgColor,
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Center(
-          child: Image.asset(
-            "images/logo/vendoor-logo.png",
-            fit: BoxFit.fill,
-            width: double.infinity,
+    return ScreenUtilInit(
+      designSize: const Size(375, 640),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: Scaffold(
+            backgroundColor: MyColours.bgColor,
+            body: Padding(
+              padding: EdgeInsets.all(20),
+              child: Center(
+                child: Image.asset(
+                  "images/logo/vendoor-logo.png",
+                  fit: BoxFit.fill,
+                  width: double.infinity,
+                ),
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
