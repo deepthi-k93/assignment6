@@ -8,6 +8,7 @@ class CartProvider with ChangeNotifier {
   final List<CartProductModel> _cartItems = [];
   List<CartProductModel> get cartItems => [..._cartItems];
   int get cartCount => _cartItems.length;
+  //int count = cartItems.
 
   CartProductModel? productDetails;
   void setProductDetails(CartProductModel product) {
@@ -41,6 +42,14 @@ class CartProvider with ChangeNotifier {
       total = total + (cartItems[i].count! * cartItems[i].price!);
     }
     return (total);
+  }
+
+  int countProducts() {
+    int totCount = 0;
+    for (int i = 0; i < cartItems.length; i++) {
+      totCount = totCount + cartItems[i].count!;
+    }
+    return totCount;
   }
 
   double calculateDiscount(int discount) {
