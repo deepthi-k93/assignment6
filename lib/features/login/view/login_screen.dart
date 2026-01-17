@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               obscureText = !obscureText;
                             });
                           },
-                          icon: Icon(Icons.visibility_off),
+                          icon: Icon(obscureText ? Icons.visibility_off : Icons.visibility),
                         ),
                       ),
                       obscureText: obscureText,

@@ -9,4 +9,6 @@ class MyColours {
 
   static Color red = Color.fromRGBO(210, 0, 0, 1);
   static Color buttonBgColour = Color.fromRGBO(234, 234, 234, 1);
+    static Color white = Color.fromRGBO(255, 255, 255, 1);
+
 }

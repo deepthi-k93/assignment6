@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:vendor_application/features/custom_app_bar.dart';
 import 'package:vendor_application/theme/colors.dart';
 
-class SuccessPage extends StatefulWidget {
-  const SuccessPage({super.key});
+class EmptyCart extends StatefulWidget {
+  const EmptyCart({super.key});
 
   @override
-  State<SuccessPage> createState() => _SuccessPageState();
+  State<EmptyCart> createState() => _EmptyCartState();
 }
 
-class _SuccessPageState extends State<SuccessPage> {
+class _EmptyCartState extends State<EmptyCart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +20,7 @@ class _SuccessPageState extends State<SuccessPage> {
       ),
       body: Padding(
         padding: const EdgeInsetsGeometry.all(10),
-        child: Center(child: Image.asset("images/success_image.jpg")),
+        child: Center(child: Image.asset("images/empty_cart.jpg")),
       ),
     );
   }

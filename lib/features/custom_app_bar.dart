@@ -2,6 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart' hide Badge;
 import 'package:provider/provider.dart';
 import 'package:vendor_application/features/cart/view/cart_screen.dart';
+import 'package:vendor_application/features/cart/view/empty_cart.dart';
 import 'package:vendor_application/features/cart/view_model/cart_provider.dart';
 import 'package:vendor_application/features/profile/view/profile_screen.dart';
 import 'package:vendor_application/theme/colors.dart';
@@ -11,6 +12,7 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int cartProducts = 0;
     return AppBar(
       backgroundColor: MyColours.bgColor,
       actionsPadding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -35,8 +37,9 @@ class CustomAppBar extends StatelessWidget {
           ),
           badgeContent: Consumer<CartProvider>(
             builder: (context, cartCounter, child) {
+              cartProducts = cartCounter.countProducts();
               return Text(
-                cartCounter.countProducts().toString(),
+                cartProducts.toString(),
                 style: TextStyle(
                   fontSize: 12,
                   color: Colors.white,
@@ -47,10 +50,17 @@ class CustomAppBar extends StatelessWidget {
           ),
           child: IconButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CartScreen()),
-              );
+              if (cartProducts > 0) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CartScreen()),
+                );
+              } else {
+               Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EmptyCart()),
+                );
+              }
             },
             icon: Icon(
               Icons.shopping_bag_outlined,
